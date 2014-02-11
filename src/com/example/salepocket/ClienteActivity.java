@@ -131,7 +131,7 @@ public class ClienteActivity extends Fragment {
 
 				cli.setContentView(R.layout.cliente_cad);
 
-				imgbtncadcli = (ImageButton) cli.findViewById(id.imgbtncad_prod);
+				imgbtncadcli = (ImageButton) cli.findViewById(id.imgbtn_prod);
 
 				edt_cli_razao = (TextView) cli
 						.findViewById(id.edt_valor_cad_prod);

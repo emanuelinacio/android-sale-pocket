@@ -106,6 +106,7 @@ public class MainActivity extends FragmentActivity implements TabHost.OnTabChang
 	    fragments.add(Fragment.instantiate(this, ClienteActivity.class.getName()));
 	    //fragments.add(Fragment.instantiate(this, TabFragmentB.class.getName()));
 	    fragments.add(Fragment.instantiate(this, ProdutoActivity.class.getName()));
+	    fragments.add(Fragment.instantiate(this, CaixaActivity.class.getName()));
 	    this.mPagerAdapter = new ViewPagerAdapter(
 	         super.getSupportFragmentManager(), fragments);
 	    this.mViewPager = (ViewPager) super.findViewById(R.id.viewpager);
@@ -124,6 +125,10 @@ public class MainActivity extends FragmentActivity implements TabHost.OnTabChang
 	    MainActivity.AddTab(this, this.mTabHost,
 	  this.mTabHost.newTabSpec("Tab2").setIndicator("Produtos"),
 	  (tabInfo = new TabInfo("Tab2", ProdutoActivity.class, args)));
+	    this.mapTabInfo.put(tabInfo.tag, tabInfo);
+	    MainActivity.AddTab(this, this.mTabHost,
+	  this.mTabHost.newTabSpec("Tab3").setIndicator("Caixa"),
+	  (tabInfo = new TabInfo("Tab3", CaixaActivity.class, args)));
 	    this.mapTabInfo.put(tabInfo.tag, tabInfo);
 	    mTabHost.setOnTabChangedListener(this);
 	  }

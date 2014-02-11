@@ -60,6 +60,17 @@ public class Banco extends SQLiteOpenHelper {
 		} catch (Exception erro) {
 			Erro = "" + erro;
 		}
+		
+		sql = "CREATE TABLE IF NOT EXISTS caixa" // tabela caixa
+				+ "(ID INTEGER PRIMARY KEY autoincrement, CAIXA_DATA DATE,"
+				+ "SALDO_INICIAL DOUBLE,"
+				+ "SALDO_FINAL DOUBLE,";
+
+		try {
+			db.execSQL(sql);
+		} catch (Exception erro) {
+			Erro = "" + erro;
+		}		
 
 		sql = "CREATE TABLE IF NOT EXISTS venda" // tabela venda
 				+ "(ID INTEGER PRIMARY KEY autoincrement, VD_DATA DATE,"
@@ -125,16 +136,14 @@ public class Banco extends SQLiteOpenHelper {
 			vetorcli.put("ENDERECO",cli.getENDERECO());
 			vetorcli.put("TELEFONE",cli.getTELEFONE());
 			
-			db.insert("clientes",null,vetorcli);
-			
+			db.insert("clientes",null,vetorcli);			
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 			Erro = "" + e;
 		}		
 		
-		return Erro;
-		
+		return Erro;		
 	}
 	
 
@@ -194,8 +203,7 @@ public class Banco extends SQLiteOpenHelper {
 				}
 				
 				db.close();
-				return retorno; // Retorna Lista de Clientes
-		
+				return retorno; // Retorna Lista de Clientes		
 	}
 
 
