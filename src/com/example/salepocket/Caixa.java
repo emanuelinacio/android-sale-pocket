@@ -9,6 +9,11 @@ public class Caixa {
 	private Double SALDOINICIAL;
 	private Double SALDOFINAL;
 	
+	public Caixa( Date TMPDate, Double TMPSaldoinicial ){
+		this.DATA = TMPDate;
+		this.SALDOINICIAL = TMPSaldoinicial;
+	}
+	
 	public Integer getID() {
 		return ID;
 	}

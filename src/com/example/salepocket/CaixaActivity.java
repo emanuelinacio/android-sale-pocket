@@ -1,11 +1,14 @@
 package com.example.salepocket;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import com.example.salepocket.R.id;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;
+import android.text.format.DateFormat;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -48,15 +51,30 @@ public class CaixaActivity extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-
 					
-					String TMPDATE = edttextdate.getText().toString();
-
-					if( TMPDATE == "" ){
+				String TMPDATECASH = edttextdate.getText().toString();
+				String TMPOPENINGBALANCE = edttextinitialbalance.getText().toString();
+				
+				if( TMPDATECASH.equals("") || TMPOPENINGBALANCE.equals("") ){
 					edttextdate.setFocusableInTouchMode(true);
 					edttextdate.requestFocus();
-					
+					return;
 				}
+				
+
+				Date datecash = new Date();
+				
+				//Convert date
+				SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yy");
+				try {
+					datecash = formater.parse(TMPDATECASH);
+				} catch (Exception e) {
+					// TODO: handle exception
+
+				}
+				
+				Caixa caixa = new Caixa( datecash, Double.valueOf( TMPOPENINGBALANCE.replace(",", ".") ) );
+					
 			}
 		});
 
