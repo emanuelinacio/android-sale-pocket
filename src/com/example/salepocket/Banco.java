@@ -63,8 +63,8 @@ public class Banco extends SQLiteOpenHelper {
 		
 		sql = "CREATE TABLE IF NOT EXISTS caixa" // tabela caixa
 				+ "(ID INTEGER PRIMARY KEY autoincrement, CAIXA_DATA DATE,"
-				+ "SALDO_INICIAL DOUBLE,"
-				+ "SALDO_FINAL DOUBLE,";
+				+ "SALDO_INICIAL FLOAT,"
+				+ "SALDO_FINAL FLOAT";
 
 		try {
 			db.execSQL(sql);
