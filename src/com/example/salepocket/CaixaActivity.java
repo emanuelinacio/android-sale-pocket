@@ -9,6 +9,7 @@ import com.example.salepocket.R.id;
 import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,6 +24,9 @@ public class CaixaActivity extends Fragment {
 	//Inicializando Tela
 	private Activity caixa;
 	View fragcaixa;
+	
+	//Global Class
+	private Caixa obj_caixa;
 	
 	//starting components
 	private
@@ -52,6 +56,8 @@ public class CaixaActivity extends Fragment {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 					
+				SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yy");
+				
 				String TMPDATECASH = edttextdate.getText().toString();
 				String TMPOPENINGBALANCE = edttextinitialbalance.getText().toString();
 				
@@ -65,7 +71,6 @@ public class CaixaActivity extends Fragment {
 				Date datecash = new Date();
 				
 				//Convert date
-				SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yy");
 				try {
 					datecash = formater.parse(TMPDATECASH);
 				} catch (Exception e) {
@@ -73,7 +78,10 @@ public class CaixaActivity extends Fragment {
 
 				}
 				
-				Caixa caixa = new Caixa( datecash, Double.valueOf( TMPOPENINGBALANCE.replace(",", ".") ) );
+				Caixa obj_caixa = new Caixa( datecash, Double.valueOf( TMPOPENINGBALANCE.replace(",", ".") ) );
+				
+				Log.e("TESTE", "TESTE");
+				
 					
 			}
 		});
@@ -85,14 +93,25 @@ public class CaixaActivity extends Fragment {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				
-
+				ScreenSale();
 				
 			}
 		});
 		
+
+		
 	
 		return fragcaixa;
 	}
+	
+	private void ScreenSale()
+	{
+		caixa = getActivity();
+		
+		caixa.setContentView(R.layout.sale_main);
+		
+	}
+
 	
 	private void Load_components()
 	{
@@ -102,7 +121,7 @@ public class CaixaActivity extends Fragment {
 		imgbtnedtexpense = (ImageButton) fragcaixa.findViewById(id.imgbtnedtexpense);
 		imgbtnopencash = (ImageButton) fragcaixa.findViewById(id.imgbtnopencash);
 		
-		edttextinitialbalance = (EditText) fragcaixa.findViewById(id.edttextinitialbalance);
+		edttextinitialbalance = (EditText) fragcaixa.findViewById(id.edttxtinitialbalance);
 		edttextclosingbalance = (EditText) fragcaixa.findViewById(id.edttextclosingbalance);
 		edttextsale = (EditText) fragcaixa.findViewById(id.edttextsale);
 		edttextexpense = (EditText) fragcaixa.findViewById(id.edttextexpense);

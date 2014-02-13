@@ -1,6 +1,8 @@
 package com.example.salepocket;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import android.content.ContentValues;
@@ -64,7 +66,7 @@ public class Banco extends SQLiteOpenHelper {
 		sql = "CREATE TABLE IF NOT EXISTS caixa" // tabela caixa
 				+ "(ID INTEGER PRIMARY KEY autoincrement, CAIXA_DATA DATE,"
 				+ "SALDO_INICIAL FLOAT,"
-				+ "SALDO_FINAL FLOAT";
+				+ "SALDO_FINAL FLOAT);";
 
 		try {
 			db.execSQL(sql);
@@ -122,6 +124,28 @@ public class Banco extends SQLiteOpenHelper {
 		return Erro;
 	}
 	
+	public String InsertCash( Caixa cash ) {
+		
+		String Erro = "Ok";
+		
+		try {
+			
+			 String data = new SimpleDateFormat("yyyy-MM-dd").format(cash.getDATA() );
+			
+			SQLiteDatabase db = this.getWritableDatabase();
+			//Montando Vetor para inserir
+			ContentValues vetorcash = new ContentValues();
+			vetorcash.put( "CAIXA_DATA", data );
+			vetorcash.put( "SALDO_INICIAL", cash.getSALDOINICIAL() );
+			vetorcash.put( "SALDO_FINAL", cash.getSALDOINICIAL() );
+			
+			db.insert("caixa", null, vetorcash);
+		} catch (Exception e) {
+			Erro = "" + e;
+		}
+		
+		return Erro;
+	}
 	
 	public String InserirCliente(Cliente cli) {
 		

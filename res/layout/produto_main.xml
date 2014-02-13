@@ -16,7 +16,7 @@
          android:text="Cadastrar" />
 
      <EditText
-         android:id="@+id/edt_filtro_prod"
+         android:id="@+id/edt_filtro_sale"
          android:layout_width="fill_parent"
          android:layout_height="wrap_content"
          android:layout_below="@+id/btn_cad_prod"
@@ -31,7 +31,7 @@
          android:id="@+id/list_produto"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:layout_below="@+id/edt_filtro_prod"
+         android:layout_below="@+id/edt_filtro_sale"
          android:layout_centerHorizontal="true"
          android:layout_marginTop="24dp" >
      </ListView>

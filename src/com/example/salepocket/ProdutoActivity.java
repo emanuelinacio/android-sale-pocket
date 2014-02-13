@@ -59,7 +59,7 @@ public class ProdutoActivity extends Fragment {
 	    
 	    //Iniciando Componentes	    
 	    btnprodcad = (Button) fragprod.findViewById(R.id.btn_cad_prod);
-	    edt_filtro_pro = (EditText) fragprod.findViewById(id.edt_filtro_prod);
+	    edt_filtro_pro = (EditText) fragprod.findViewById(id.edt_filtro_sale);
 	    list_prod = (ListView) fragprod.findViewById(R.id.list_produto);
 	  
 	    //Listagem Produtos List View

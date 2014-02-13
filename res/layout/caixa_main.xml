@@ -5,69 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/TextView02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/edttextdate"
-        android:layout_marginTop="22dp"
-        android:text="Saldo Inicial"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/TextView03"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/TextView02"
-        android:layout_marginTop="70dp"
-        android:text="Venda"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/edttextsale"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/TextView03"
-        android:ems="10"
-        android:enabled="false"
-        android:inputType="numberDecimal" />
-
-    <TextView
-        android:id="@+id/TextView04"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/edttextsale"
-        android:text="Despesa"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/edttextexpense"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/edttextsale"
-        android:layout_below="@+id/TextView04"
-        android:ems="10"
-        android:enabled="false"
-        android:inputType="numberDecimal" />
-
-    <EditText
-        android:id="@+id/edttextinitialbalance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/TextView02"
-        android:ems="10"
-        android:enabled="true"
-        android:inputType="numberDecimal" >
-
-        <requestFocus />
-    </EditText>
-
     <ImageButton
         android:id="@+id/imgbtnedtsale"
         android:layout_width="wrap_content"
@@ -75,14 +12,6 @@
         android:layout_above="@+id/TextView04"
         android:layout_alignParentRight="true"
         android:layout_marginRight="15dp"
-        android:src="@android:drawable/ic_menu_edit" />
-
-    <ImageButton
-        android:id="@+id/imgbtnedtexpense"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/edttextexpense"
-        android:layout_alignLeft="@+id/imgbtnedtsale"
         android:src="@android:drawable/ic_menu_edit" />
 
     <ImageButton
@@ -102,17 +31,6 @@
         android:layout_marginRight="19dp"
         android:layout_toLeftOf="@+id/imgbtnsavecash"
         android:src="@android:drawable/ic_menu_delete" />
-
-    <EditText
-        android:id="@+id/edttextdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="27dp"
-        android:ems="10"
-        android:enabled="true"
-        android:inputType="date" />
 
     <TextView
         android:id="@+id/TextView01"
@@ -147,8 +65,85 @@
         android:id="@+id/imgbtnopencash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/edttextinitialbalance"
+        android:layout_above="@+id/TextView03"
         android:layout_toRightOf="@+id/imgbtnclearcash"
         android:src="@android:drawable/ic_menu_set_as" />
+
+    <ImageButton
+        android:id="@+id/imgbtnedtexpense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextView05"
+        android:layout_alignLeft="@+id/imgbtnedtsale"
+        android:layout_marginBottom="26dp"
+        android:src="@android:drawable/ic_menu_edit" />
+
+    <EditText
+        android:id="@+id/edttextexpense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imgbtnedtexpense"
+        android:layout_alignParentLeft="true"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/TextView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edttextexpense"
+        android:layout_alignParentLeft="true"
+        android:text="Despesa"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/edttextsale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/imgbtnedtsale"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edttextsale"
+        android:layout_alignParentLeft="true"
+        android:text="Venda"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/edttextdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TextView01"
+        android:ems="10"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/edttxtinitialbalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/imgbtnopencash"
+        android:ems="10"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/edttextdate"
+        android:text="Saldo Inicial"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
