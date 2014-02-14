@@ -115,50 +115,50 @@ public class ProdutoActivity extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				TelaCadastroProduto();
+				prod = getActivity();
+				TelaCadastroProduto( prod );
 			}			
 
-    
-		    private void TelaCadastroProduto() {
-		    	
-		    	prod = getActivity();
-		    	
-		    	prod.setContentView(R.layout.produto_cad);
-		    	
-		    	//Carregar componentes
-			    edt_cad_vlr_prod = (TextView) prod.findViewById(R.id.edt_valor_cad_prod);
-			    edt_prod_desc = (TextView) prod.findViewById(R.id.edt_desc_prod);
-			    imgbtncadprod = (ImageButton) prod.findViewById(R.id.imgbtn_prod);
-		    	
-		    	
-			    imgbtncadprod.setOnClickListener( new View.OnClickListener() {
-					
-					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
-					
-						Produto produto = new Produto();
-						
-						//Converte String para double
-						String TMPVLRPROD = edt_cad_vlr_prod.getText().toString();
-						produto.setDESCRICAO( edt_prod_desc.getText().toString() );
-						produto.setVLR_UNITARIO( Double.valueOf( TMPVLRPROD.replace(",", ".") ) );
-					
-						String logerro = db.InserirProduto(produto);
-						
-						if(logerro == "Ok" ){
-							Log.e("BANCO", "PRODUTO CADASTRADO");
-						}else{
-							Log.e("BANCO", logerro);
-						}												
-					}
-				});
-		    }
-		    
+  	    
 		});	    
  
 	    return fragprod;
 	  }
+	 
+	    public void TelaCadastroProduto( Activity prod ) {
+	    		    	
+	    	
+	    	prod.setContentView(R.layout.produto_cad);
+	    	
+	    	//Carregar componentes
+		    edt_cad_vlr_prod = (TextView) prod.findViewById(R.id.edt_valor_cad_prod);
+		    edt_prod_desc = (TextView) prod.findViewById(R.id.edt_desc_prod);
+		    imgbtncadprod = (ImageButton) prod.findViewById(R.id.imgbtn_prod);
+	    	
+	    	
+		    imgbtncadprod.setOnClickListener( new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+				
+					Produto produto = new Produto();
+					
+					//Converte String para double
+					String TMPVLRPROD = edt_cad_vlr_prod.getText().toString();
+					produto.setDESCRICAO( edt_prod_desc.getText().toString() );
+					produto.setVLR_UNITARIO( Double.valueOf( TMPVLRPROD.replace(",", ".") ) );
+				
+					String logerro = db.InserirProduto(produto);
+					
+					if(logerro == "Ok" ){
+						Log.e("BANCO", "PRODUTO CADASTRADO");
+					}else{
+						Log.e("BANCO", logerro);
+					}												
+				}
+			});
+	    }
 	 
 	public void CarregarEncontradosListView() // Metodo para carregar dados listview de Clientes
     {

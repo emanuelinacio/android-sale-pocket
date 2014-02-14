@@ -30,7 +30,7 @@ public class CaixaActivity extends Fragment {
 	
 	//starting components
 	private
-	ImageButton imgbtnedtsale, imgbtnedtexpense, imgbtnopencash;
+	ImageButton imgbtnedtsale, imgbtnedtexpense, imgbtnopencash, imgbtnsearchprod, imgbtnadditem;
 	EditText edttextinitialbalance, edttextclosingbalance, edttextsale, edttextexpense, edttextdate;
 	
 	//Banco de Dados
@@ -80,7 +80,7 @@ public class CaixaActivity extends Fragment {
 				
 				Caixa obj_caixa = new Caixa( datecash, Double.valueOf( TMPOPENINGBALANCE.replace(",", ".") ) );
 				
-				Log.e("TESTE", "TESTE");
+				Log.e("CASH", "INICIADO COM SUCESSO");
 				
 					
 			}
@@ -110,12 +110,32 @@ public class CaixaActivity extends Fragment {
 		
 		caixa.setContentView(R.layout.sale_main);
 		
+		Load_sale_componentes();
+		
+		imgbtnsearchprod.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+				ProdutoActivity prodactivity = new ProdutoActivity();
+				prodactivity.TelaCadastroProduto( caixa );
+				
+			}
+		});
+		
+	}
+	
+	private void Load_sale_componentes()
+	{
+		imgbtnsearchprod = (ImageButton) caixa.findViewById(id.imgbtnsearchprod);
+		imgbtnadditem = (ImageButton) caixa.findViewById(id.imgbtnadditem);
 	}
 
 	
 	private void Load_components()
 	{
-		//Upload Component
+		//Load Component
 		
 		imgbtnedtsale = (ImageButton) fragcaixa.findViewById(id.imgbtnedtsale);
 		imgbtnedtexpense = (ImageButton) fragcaixa.findViewById(id.imgbtnedtexpense);

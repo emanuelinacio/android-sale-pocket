@@ -7,40 +7,51 @@
 
     <ListView
         android:id="@+id/list_produto"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/spinner1"
+        android:layout_below="@+id/edttextqtdprod"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp" >
     </ListView>
 
-    <Spinner
-        android:id="@+id/spinner1"
+    <ImageButton
+        android:id="@+id/imgbtnadditem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignBottom="@+id/edttextqtdprod"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="22dp"
+        android:src="@android:drawable/ic_menu_add" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/edttextqtdprod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="84dp"
         android:ems="10"
         android:inputType="number" >
 
         <requestFocus />
     </EditText>
 
-    <ImageButton
-        android:id="@+id/imageButton1"
+    <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editText1"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="22dp"
-        android:src="@android:drawable/ic_menu_add" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/imgbtnsearchprod"
+        android:text="Selecione Produto"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageButton
+        android:id="@+id/imgbtnsearchprod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imgbtnadditem"
+        android:layout_alignLeft="@+id/imgbtnadditem"
+        android:src="@android:drawable/ic_menu_search" />
 
 </RelativeLayout>
